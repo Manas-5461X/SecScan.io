@@ -1,0 +1,8 @@
+
+> frontend@0.0.0 build
+> tsc -b && vite build
+
+src/App.tsx(4,10): error TS1484: 'ScanResult' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/pages/Dashboard.tsx(1,10): error TS1484: 'ScanResult' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/pages/Home.tsx(2,19): error TS1484: 'ScanResult' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/pages/Home.tsx(3,23): error TS6133: 'ShieldCheck' is declared but its value is never read.
