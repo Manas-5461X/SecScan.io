@@ -8,10 +8,10 @@ function App() {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#050505] text-gray-100 selection:bg-blue-500/30 font-sans">
+    <div className="min-h-screen flex flex-col bg-[#050505] text-gray-100 selection:bg-blue-500/30 font-sans relative overflow-hidden">
       
       {/* Top Navigation */}
-      <header className="border-b border-white/[0.02] bg-transparent sticky top-0 z-50">
+      <header className="border-b border-white/[0.05] bg-[#050505]/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div
             className="flex items-center gap-3 cursor-pointer group"

@@ -3,7 +3,7 @@ import axios from 'axios';
 // Assume backend is running on local 3000 during dev
 export const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
-    timeout: 30000, // 30 seconds for complete scan
+    timeout: 120000, // 120 seconds for complete scan
 });
 
 export interface VulnerabilityFinding {

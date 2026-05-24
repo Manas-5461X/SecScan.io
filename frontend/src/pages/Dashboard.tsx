@@ -8,9 +8,24 @@ interface DashboardProps {
 }
 
 export default function Dashboard({ data, onBack }: DashboardProps) {
-    const { risk, secrets, vulnerabilities, misconfigurations } = data;
+    const risk = data.risk || { riskLevel: 'Low', totalScore: 0, breakdown: [] };
+    const secrets = data.secrets || [];
+    const vulnerabilities = data.vulnerabilities || [];
+    const misconfigurations = data.misconfigurations || [];
 
-    const totalIssues = secrets.length + vulnerabilities.length + misconfigurations.length;
+    const enrichedSecrets = secrets.map(s => ({
+        ...s,
+        summary: `Exposed ${s.type} found in ${s.file}`,
+        details: `### Security Threat Detected\n\nAn exposed secret of type **${s.type}** was detected at line **${s.line}** in \`${s.file}\`.\n\n> **Risk:** Secrets hardcoded in repositories can lead to unauthorized access, data breaches, and severe financial damage.\n\n**Remediation Strategy:**\n- Immediately revoke the exposed credential.\n- Rotate the secret in all affected systems.\n- Move the credential to a secure vault or environment variables (.env).\n- Use a tool like BFG Repo-Cleaner or \`git filter-repo\` to remove it from Git history.`
+    }));
+
+    const enrichedMisconfigs = misconfigurations.map(m => ({
+        ...m,
+        summary: m.description,
+        details: `### Misconfiguration Analysis\n\n**Type:** ${m.type}\n**File:** \`${m.file}\`\n\n${m.description}\n\n> **Risk:** Misconfigurations often expose internal system details, allow unauthorized actions, or leak stack traces to malicious actors.\n\n**Remediation Strategy:**\n- Review the configuration settings in the specified file.\n- Apply the principle of least privilege.\n- Ensure debug modes and verbose logging are disabled in production.`
+    }));
+
+    const totalIssues = enrichedSecrets.length + vulnerabilities.length + enrichedMisconfigs.length;
 
     const getRiskColor = (level: string) => {
         switch (level) {
@@ -129,7 +144,7 @@ export default function Dashboard({ data, onBack }: DashboardProps) {
                 <div className="grid gap-6">
                     <IssueList
                         title="Exposed Secrets"
-                        issues={secrets}
+                        issues={enrichedSecrets}
                         icon={<KeyRound className="w-6 h-6 text-red-400" />}
                     />
 
@@ -141,7 +156,7 @@ export default function Dashboard({ data, onBack }: DashboardProps) {
 
                     <IssueList
                         title="Misconfigurations"
-                        issues={misconfigurations}
+                        issues={enrichedMisconfigs}
                         icon={<Settings2 className="w-6 h-6 text-yellow-400" />}
                     />
                 </div>

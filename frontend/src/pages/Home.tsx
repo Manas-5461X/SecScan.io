@@ -37,17 +37,21 @@ export default function Home({ onScanComplete }: HomeProps) {
     return (
         <div className="flex flex-col items-center justify-center min-h-[75vh] px-4 w-full relative z-10">
             
-            {/* Gemini-like Central Glowing Gradient Background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-purple-900/10 to-transparent blur-3xl -z-10 pointer-events-none" />
+            {/* Gemini-like Central Glowing Background */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] pointer-events-none -z-10">
+                <div className="absolute inset-0 bg-blue-600/10 blur-[100px] rounded-full" />
+                <div className="absolute inset-10 bg-indigo-500/10 blur-[100px] rounded-full" />
+                <div className="absolute inset-20 bg-purple-500/5 blur-[100px] rounded-full" />
+            </div>
 
-            <div className="text-center mb-8 animate-fade-in-up w-full max-w-3xl flex flex-col items-center mt-[-5vh]">
+            <div className="text-center mb-8 animate-fade-in-up w-full max-w-3xl flex flex-col items-center">
                 <div className="mb-6">
                     <div className="p-3 rounded-2xl bg-[#1e1e1e] border border-white/5 shadow-lg">
                         <ShieldAlert className="w-8 h-8 text-blue-400" />
                     </div>
                 </div>
                 <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight mb-4 text-white drop-shadow-sm">
-                    Shift Security Left.
+                    Secure Your Codebase. Instantly.
                 </h1>
                 <p className="text-lg text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
                     Enterprise-grade static analysis for your public repositories. Detect exposed secrets, vulnerable dependencies, and misconfigurations instantly.
