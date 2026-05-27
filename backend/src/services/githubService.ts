@@ -32,7 +32,7 @@ export class GithubService {
     public parseUrl(url: string): { owner: string; repo: string } | null {
         try {
             // Handle various github url formats
-            const regex = /github\.com[/:]([a-zA-Z0-9.-]+)\/([a-zA-Z0-9.-]+?)(\.git|\/)?$/;
+            const regex = /github\.com[/:]([a-zA-Z0-9._-]+)\/([a-zA-Z0-9._-]+?)(\.git|\/)?$/;
             const match = url.match(regex);
             if (match && match.length >= 3) {
                 return { owner: match[1], repo: match[2] };

@@ -275,5 +275,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <div align="center">
   <br />
-  <p>Built with ❤️ by the Open Source Security Community</p>
+  <p>Built with ❤️</p>
 </div>

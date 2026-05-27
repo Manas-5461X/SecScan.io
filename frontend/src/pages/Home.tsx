@@ -36,7 +36,7 @@ export default function Home({ onScanComplete }: HomeProps) {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[75vh] px-4 w-full relative z-10">
-            
+
             {/* Gemini-like Central Glowing Background */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] pointer-events-none -z-10">
                 <div className="absolute inset-0 bg-blue-600/10 blur-[100px] rounded-full" />
@@ -97,7 +97,7 @@ export default function Home({ onScanComplete }: HomeProps) {
                         </button>
                     </form>
                 </div>
-                
+
                 {error && (
                     <div className="mt-4 p-4 bg-red-950/40 border border-red-900/50 rounded-2xl flex items-start text-red-200 backdrop-blur-md animate-in slide-in-from-top-2">
                         <AlertTriangle className="h-5 w-5 mr-3 flex-shrink-0 mt-0.5 text-red-400" />
