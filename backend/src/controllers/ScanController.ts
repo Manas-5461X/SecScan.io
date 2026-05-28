@@ -7,7 +7,7 @@ import { riskCalculator } from '../risk-engine/RiskCalculator';
 import { z } from 'zod';
 
 const scanRequestSchema = z.object({
-    url: z.string().url('Invalid GitHub URL'),
+    url: z.string().min(1, 'URL is required').refine(val => val.includes('github.com'), 'Invalid GitHub URL'),
 });
 
 export class ScanController {
