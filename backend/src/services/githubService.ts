@@ -26,13 +26,11 @@ export class GithubService {
         });
     }
 
-    /**
-     * Parse a github URL into owner and repo
-     */
     public parseUrl(url: string): { owner: string; repo: string } | null {
         try {
-            // Handle various github url formats
-            const regex = /github\.com[/:]([a-zA-Z0-9._-]+)\/([a-zA-Z0-9._-]+?)(\.git|\/)?$/;
+            url = url.trim();
+            // Handle various github url formats, ignoring trailing slashes and optional .git
+            const regex = /github\.com[/:]([a-zA-Z0-9._-]+)\/([a-zA-Z0-9._-]+?)(?:\.git)?\/?$/i;
             const match = url.match(regex);
             if (match && match.length >= 3) {
                 return { owner: match[1], repo: match[2] };
