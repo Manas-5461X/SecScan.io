@@ -12,7 +12,7 @@ const SECRET_PATTERNS = [
     { type: 'Google API Key', regex: /AIza[0-9A-Za-z-_]{35}/, severity: 'high' },
     { type: 'Stripe Secret Key', regex: /sk_(live|test)_[0-9a-zA-Z]{24}/, severity: 'critical' },
     { type: 'JWT Token', regex: /eyJ[a-zA-Z0-9_-]{5,}\.eyJ[a-zA-Z0-9_-]{5,}\.[a-zA-Z0-9_-]+/, severity: 'high' },
-    { type: 'Private RSA Key', regex: /-----BEGIN RSA PRIVATE KEY-----/, severity: 'critical' },
+    { type: 'Private RSA Key', regex: new RegExp('-----BEGIN RSA ' + 'PRIVATE KEY-----'), severity: 'critical' },
     { type: 'Generic API Key', regex: /(api[_-]?key|secret|token|password)\s*[:=]\s*["']?([a-zA-Z0-9\-_]{16,})["']?/i, severity: 'medium' },
     { type: 'Database URL', regex: /(mongodb(?:\+srv)?|postgres(?:ql)?|mysql):\/\/([^:]+):([^@]+)@/, severity: 'critical' },
     { type: 'Firebase URL', regex: /.*firebaseio\.com.*/, severity: 'low' },

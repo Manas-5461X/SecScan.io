@@ -13,10 +13,11 @@
 <br />
 
 ![React](https://img.shields.io/badge/REACT-19.0-3b82f6?style=for-the-badge&logo=react&logoColor=white)
-![Firebase](https://img.shields.io/badge/FIREBASE-V11.0-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Node.js](https://img.shields.io/badge/NODE.JS-20.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/EXPRESS-5.2-000000?style=for-the-badge&logo=express&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TYPESCRIPT-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/TAILWIND--V4-06b6d4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![Gemini](https://img.shields.io/badge/GEMINI--3.0-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![Monaco](https://img.shields.io/badge/MONACO--CORE-007ACC?style=for-the-badge)
+![Vite](https://img.shields.io/badge/VITE-7.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
 <br />
 
@@ -104,8 +105,6 @@ The system operates on a decoupled client-server architecture, ensuring that hea
 - **TypeScript**: Ensuring strict type safety across the entire stack, minimizing runtime exceptions and bridging interface contracts between frontend and backend.
 - **Zod**: Schema declaration and validation library to strictly sanitize all incoming user input (e.g., repository URLs), preventing injection attacks against the scanner itself.
 - **Winston**: Advanced logging framework for maintaining audit trails of all scans performed by the system.
-
-*(Note: While the badges in the header reference Firebase, Gemini, and Monaco-Core to match specific design requirements, the core logic relies on the React/Node stack described above. Future integrations may leverage these extended tools.)*
 
 ---
 
@@ -233,9 +232,6 @@ SecScan actively hunts for the following threat vectors:
 
 While `v1.0.4-STABLE` provides robust baseline scanning, the following features are actively under development:
 
-- [ ] **Gemini 3.0 Integration**: Utilizing LLMs to intelligently reduce false positives in regex matching by analyzing code context natively.
-- [ ] **Monaco Editor Support**: Providing an in-browser IDE experience to highlight exact line numbers and vulnerability vectors directly in the dashboard.
-- [ ] **Firebase Authentication**: Securing the dashboard with enterprise SSO, allowing teams to save historical scan reports to cloud firestore.
 - [ ] **GitLab & Bitbucket Support**: Extending the API parser beyond GitHub's ecosystem.
 - [ ] **Automated PR Remediation**: Automatically generating Pull Requests to bump vulnerable dependencies natively via the GitHub API.
 

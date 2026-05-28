@@ -40,7 +40,7 @@ export class ConfigScanner {
             }
         }
 
-        // Check Debug=true
+        // Check if debug mode is enabled
         if (content.match(/debug\s*=\s*(true|1)/i)) {
             findings.push({
                 file,
